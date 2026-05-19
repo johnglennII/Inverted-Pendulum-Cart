@@ -83,8 +83,18 @@ try
     x_history = [y_sim(1,:); nan(1, length(t)); y_sim(2,:); nan(1,length(t))];
     f1 = pend_plots(t, x_history, params, num_samples);
 catch
-    t = y_actual{1}.Values.Time;
-    num_samples = length(t);
-    x_history = [y_actual{1}.Values.Data'; nan(1, length(t)); y_actual{2}.Values.Data'; nan(1,length(t))];
-    f1 = pend_plots(t, x_history, params, num_samples);
+    myRunObj = Simulink.sdi.getCurrentSimulationRun("SMC_hardware");
+    mySigObj = getAllSignals(myRunObj);
+    hw_run_data = export(mySigObj);
+
+    u_actual_log = hw_run_data.Data(:,1)';
+    y_actual_log = hw_run_data.Data(:,2:3)';
+    y_hat_log = hw_run_data.Data(:,4:5)';
+    t_log = hw_run_data.Time';
+
+    clear myRunObj mySigObj hw_run_data;
+
+    num_samples = length(t_log);
+    x_history = [y_actual_log(1,:); nan(1, length(t_log)); y_actual_log(2,:); nan(1,length(t_log))];
+    [f1, f2] = pend_plots(t_log, x_history, params, num_samples, 1, u_actual_log);
 end

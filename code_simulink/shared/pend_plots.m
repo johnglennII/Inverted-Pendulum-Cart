@@ -86,50 +86,61 @@ while idx < num_samples
     set(h_joints, 'XData', j1_x(idx), 'Ydata', j1_y(idx))
     set(time, 'string', sprintf('t=%.1f s', t(idx)));
     drawnow
+    break
 end
 t_anim = toc(startTime);
 fprintf('Animation time: %.2fs\n', t_anim);
 
 
-if nargout > 1
-    % --xc, theta, u vs time--
+if nargout == 2
+    % == xc, theta, u vs time ==
     varargout{1} = figure;
-    subplot(3,1,1)
-    hold on; grid on;
-    title('$x_c$')
-    plot(t, x1_history)
+    tl = tiledlayout(3,1, 'Padding', 'compact');
+    title(tl, sprintf('Positions and Input'), 'interpreter', 'latex');
 
-    subplot(3,1,2)
+    % -Cart position-
+    ax1 = nexttile;
     hold on; grid on;
-    title('$\theta_1$ and $\theta_2$')
-    plot(t, [x3_history; x5_history])
-    legend('$\theta_1$', '$\theta_2$')
+    title('Cart position (m)')
+    plot(t, x1_history)
+    yline(0,'k--')
+    legend('$x_c$')
+    xticklabels({})
+
+    % -Pendulum angle-
+    ax2 = nexttile;
+    hold on; grid on;
+    title('Pendulum angle (deg)')
+    plot(t, rad2deg(x3_history))
+    yline(0,'k--')
+    legend('$\theta$')
+    xticklabels({})
     
-    subplot(3,1,3)
+    % -Control input-
+    ax3 = nexttile;
     hold on; grid on;
-    title('Control Input: u')
+    title('Control input (N)')
     plot(t, u_history);
+    legend('$u$')
     xlabel('time (s)')
-    
+
+    linkaxes([ax1, ax2, ax3], 'x');
+end
+
+if nargout == 3
     % states vs time
     varargout{2} = figure;
-    subplot(3,1,1)
+    subplot(2,1,1)
     hold on; grid on;
     title('Cart')
     plot(t, [x1_history; x2_history])
     legend('$x_c$', '$\dot{x}_c$')
     
-    subplot(3,1,2)
+    subplot(2,1,2)
     hold on; grid on;
-    title('Pendulum 1')
+    title('Pendulum')
     plot(t, [x3_history; x4_history])
-    legend('$\theta_1$', '$\dot{\theta}_1$')
-    
-    subplot(3,1,3)
-    hold on; grid on;
-    title('Pendulum 2')
-    plot(t, [x5_history; x6_history])
-    legend('$\theta_2$', '$\dot{\theta}_2$')
+    legend('$\theta$', '$\dot{\theta}$')
     xlabel('time (s)')
 end
 
