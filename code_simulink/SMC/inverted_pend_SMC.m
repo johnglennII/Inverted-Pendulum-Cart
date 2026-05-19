@@ -65,7 +65,7 @@ disp('K gains:'); disp(K);
 disp('CL poles:'); disp(poles);
 
 Phi = 0.1;
-eta = 55;
+eta = 95;
 
 % --Observer Design--
 poles_obsv = 15*max(real(poles))*ones(n,1) - 1.5*[0;1;2;3];
