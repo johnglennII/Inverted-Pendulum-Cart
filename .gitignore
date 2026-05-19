@@ -3,7 +3,7 @@
 ~$*.sldasm
 ~$*.slddrw
 ~$*.sld
-*.slddrw
+*.SLDDRW
 
 # MATLAB temporary files
 *.asv
