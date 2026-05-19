@@ -3,4 +3,10 @@
 ~$*.sldasm
 ~$*.slddrw
 ~$*.sld
+*.slddrw
+
+# MATLAB temporary files
+*.asv
+
+# Other
 media/inverted_pendulum_assembly_hollow.SLDPRT
