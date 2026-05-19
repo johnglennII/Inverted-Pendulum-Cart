@@ -96,5 +96,5 @@ catch
 
     num_samples = length(t_log);
     x_history = [y_actual_log(1,:); nan(1, length(t_log)); y_actual_log(2,:); nan(1,length(t_log))];
-    [f1, f2] = pend_plots(t_log, x_history, params, num_samples, 1, u_actual_log);
+    [f1, f2] = pend_plots(t_log, x_history, params, num_samples, u_actual_log);
 end

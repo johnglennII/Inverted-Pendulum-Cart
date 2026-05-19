@@ -1,4 +1,4 @@
-function [f1, varargout] = pend_plots(t, x_history, params, num_samples, refresh_rate, u_history, ctrl_mode_history)
+function [f1, varargout] = pend_plots(t, x_history, params, num_samples, u_history, ctrl_mode_history)
 %Double Inverted Pendulum Animation
 % INPUTS:
 %   x_history: n x N
@@ -8,7 +8,6 @@ arguments
     x_history
     params
     num_samples
-    refresh_rate = 1
     u_history = nan(1,length(t))
     ctrl_mode_history = ones(1, num_samples)
 end
@@ -86,7 +85,6 @@ while idx < num_samples
     set(h_joints, 'XData', j1_x(idx), 'Ydata', j1_y(idx))
     set(time, 'string', sprintf('t=%.1f s', t(idx)));
     drawnow
-    break
 end
 t_anim = toc(startTime);
 fprintf('Animation time: %.2fs\n', t_anim);
