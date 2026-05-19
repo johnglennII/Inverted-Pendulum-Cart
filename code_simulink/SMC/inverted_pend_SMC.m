@@ -55,8 +55,8 @@ rank(ctrb(A,B));
 rank(obsv(A,C));
 
 % --Control Design--
-Q = diag([5000, 1, 100, 5]);
-R = 1;
+Q = diag([5000, 1, 100, 1]);
+R = 0.1;
 [K,~,poles] = lqr(A,B,Q,R);
 % poles = [-20, -5, -30, -6];
 % K = place(A, B, poles);
@@ -64,8 +64,6 @@ disp('=== No Integral Action ===')
 disp('K gains:'); disp(K);
 disp('CL poles:'); disp(poles);
 
-% Phi = 0.1;
-% eta = 105;
 Phi = 0.1;
 eta = 55;
 
