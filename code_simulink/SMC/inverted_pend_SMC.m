@@ -113,4 +113,6 @@ if export_plt == 'y'
 
     mediaPath = fullfile(currentPath, '..', '..', 'media', 'SMC');
     exportgraphics(f2, fullfile(mediaPath, 'positions_u.png'), 'Resolution', 300);
+    
+    save(fullfile(currentPath, 'hardware_run.mat'), 'u_actual_log', 'y_actual_log', 'y_hat_log', 't_log');
 end
