@@ -2,16 +2,20 @@
 *Inverted Pendulum on a Cart implemented in MATLAB/Simulink & Simulink Desktop Real-Time.*
 
 ## Project Overview
-In this project, I developed blah blah blah. 
+In this project, I 
 
 ## Key Features
-* Estimated impulsive maneuvers and drag.
-* Accounted for $J2/J3$ and lunar third-body effects.
-* Handled simulated range and range-rate measurements.
+* **temp:** temp
 
 ## Visuals
-<img src="./media/pendulum_assembly.png" width="50%" alt="Pendulum Assembly">
+### 1. Control System 
 
-## Skills Used
-**Software:** MATLAB, Simulink, Simulink Desktop Real-Time
-**Concepts:** State Estimation, Trajectory Optimization
+<p align="center">
+  <img src="./media/SMC/SMC_hardware.webp" width="49%" alt="SMC Hardware Video"/>
+  <img src="./media/SMC/SMC_sim.webp" width="49%" alt="SMC Simulation Video"/>
+</p>
+
+## Skills & Software Used
+* **Software:** MATLAB, Simulink, Simulink Desktop Real-Time (SDRT)
+* **Hardware:** Oscilloscope, vertical mill
+* **Concepts:** Optimal Control, Sliding Mode Control (SMC), Lagrangian Mechanics
