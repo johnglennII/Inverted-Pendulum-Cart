@@ -35,7 +35,7 @@ u_star = 0;
 
 n = length(x_star);
 dt = 0.0001;
-tf = 15;
+tf = 20;
 
 syms x1 x2 x3 x4 u
 x1_dot = x2;
@@ -76,6 +76,8 @@ disp('Observer poles:'); disp(poles_obsv');
 %% Plots
 close('all');
 
+export_plt = input('Export Plots? y/n: ', 's');
+
 try
     t = 0:dt:tf;
     num_samples = length(t);
@@ -97,4 +99,22 @@ catch
     num_samples = length(t_log);
     x_history = [y_actual_log(1,:); nan(1, length(t_log)); y_actual_log(2,:); nan(1,length(t_log))];
     [f1, f2] = pend_plots(t_log, x_history, params, num_samples, u_actual_log);
+end
+
+if export_plt == 'y'
+    try
+        % Run Section
+        activeFile = matlab.desktop.editor.getActiveFilename;
+        currentPath = fileparts(activeFile);
+    catch
+        % Run
+        currentPath = fileparts(mfilename('fullpath'));
+    end
+
+    mediaPath = fullfile(currentPath, '..', '..', 'media', 'trajectory_optimization');
+    exportgraphics(f2, fullfile(mediaPath, 'pos_u.png'), 'Resolution', 300);
+    exportgraphics(f3, fullfile(mediaPath, 'states.png'), 'Resolution', 300);
+    exportgraphics(f4, fullfile(mediaPath, 'state_traj.png'), 'Resolution', 300);
+    exportgraphics(f5, fullfile(mediaPath, 'state_error.png'), 'Resolution', 300);
+    exportgraphics(f6, fullfile(mediaPath, 'input_traj.png'), 'Resolution', 300);
 end
