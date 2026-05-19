@@ -39,7 +39,7 @@ j2_x = j1_x - Lp.*sin(x3_history);
 j2_y = Lp.*cos(x3_history);
 
 % --Animation--
-f1 = figure('Name', 'Double Inverted Pendulum', 'Color', 'w');
+f1 = figure('Name', 'Double Inverted Pendulum', 'Color', 'w', 'WindowState','maximized');
 hold on; grid on; axis equal;
 
 % axis limits
@@ -58,7 +58,7 @@ h_cart = rectangle('Position', [j1_x(1)-.5*cart_width, -.5*cart_height, cart_wid
 h_link1 = plot([j1_x(1), j2_x(1)], [j1_y(1), j2_y(1)], 'color', [0, 0.4470, 0.7410]);
 h_joints = plot(j1_x(1), j1_y(1), 'o', 'MarkerSize', 3, 'MarkerFaceColor', [0, 0.4470, 0.7410], 'Color', [0, 0.4470, 0.7410]);
 % h_ctrl_mode = text(2, (L1+L2+.45), 'Tracking', 'Color', '#D95319');
-time = text(1.25, Lp+0.25, 't=0.0 s');
+time = text(1.25, Lp+0.15, 't=0.0 s');
 
 pause(1.0)
 idx = 1;
