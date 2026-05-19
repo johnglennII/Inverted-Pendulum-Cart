@@ -111,10 +111,6 @@ if export_plt == 'y'
         currentPath = fileparts(mfilename('fullpath'));
     end
 
-    mediaPath = fullfile(currentPath, '..', '..', 'media', 'trajectory_optimization');
-    exportgraphics(f2, fullfile(mediaPath, 'pos_u.png'), 'Resolution', 300);
-    exportgraphics(f3, fullfile(mediaPath, 'states.png'), 'Resolution', 300);
-    exportgraphics(f4, fullfile(mediaPath, 'state_traj.png'), 'Resolution', 300);
-    exportgraphics(f5, fullfile(mediaPath, 'state_error.png'), 'Resolution', 300);
-    exportgraphics(f6, fullfile(mediaPath, 'input_traj.png'), 'Resolution', 300);
+    mediaPath = fullfile(currentPath, '..', '..', 'media', 'SMC');
+    exportgraphics(f2, fullfile(mediaPath, 'positions_u.png'), 'Resolution', 300);
 end
