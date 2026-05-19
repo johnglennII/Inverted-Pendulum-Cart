@@ -12,6 +12,7 @@ slprj/
 *_sldrt_ert_win64/
 *.rxw64
 *.slxc
+*.autosave
 
 # Other
 media/inverted_pendulum_assembly_hollow.SLDPRT
