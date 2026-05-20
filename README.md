@@ -20,14 +20,14 @@ In this project, I
 
 
 <p align="center">
-  <img src="./media/simulink_control_sys.png" width="49%" alt="Control System"/>
+  <img src="./media/SMC/simulink_control_sys_SMC.png" width="49%" alt="Simulink Control System"/>
 </p>
 
 ### 3. Controller Performance
 
 
 <p align="center">
-  <img src="./media/" width="75%" alt=""/>
+  <img src="./media/SMC/positions_u.png" width="75%" alt="Positions and Input"/>
 </p>
 
 ### 4. Mechanical Design
@@ -35,7 +35,7 @@ The mechanical design
 
 <p align="center">
   <img src="./media/" width="49%" alt="Actual Assembly"/>
-  <img src="./media/" width="49%" alt = "CAD Assembly"/>
+  <img src="./media/cad_assembly.png" width="49%" alt = "CAD Assembly"/>
 </p>
 
 ## Skills & Software Used
