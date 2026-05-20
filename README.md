@@ -2,7 +2,7 @@
 *Hardware fabrication and Sliding Mode Control (SMC) of an inverted pendulum on a cart implemented in MATLAB/Simulink & Simulink Desktop Real-Time (SDRT).*
 
 ## Project Overview
-In this project, I designed, fabricated, and controlled an inverted pendulum on a cart system. 
+In this project, I designed, fabricated, and controlled an inverted pendulum on a cart system. The system was designed specifically for the NC State University controls curriculum to be used by students. To handle physical uncertainties and Coulomb friction, I derived the system's electromechanical dynamics and implemented a robust Sliding Mode Controller (SMC) paired with a state observer, deployed directly to the hardware using Simulink Desktop Real-Time (SDRT).
 
 ## Key Features
 * **Robust Control (SMC):** Designed and tuned a Sliding Mode Controller to stabilize the pendulum in the upright position, successfully rejecting physical disturbances and handling plant parameter variations (tested across multiple different pendulum mass configurations).
@@ -22,14 +22,14 @@ In this project, I designed, fabricated, and controlled an inverted pendulum on 
 
 
 <p align="center">
-  <img src="./media/SMC/simulink_control_sys_SMC.png" width="49%" alt="Simulink Control System"/>
+  <img src="./media/SMC/simulink_control_sys_SMC.png" width="75%" alt="Simulink Control System"/>
 </p>
 
 ### 3. Controller Performance
 
 
 <p align="center">
-  <img src="./media/SMC/positions_u.png" width="75%" alt="Positions and Input"/>
+  <img src="./media/SMC/positions_u.png" width="49%" alt="Positions and Input"/>
 </p>
 
 ### 4. Mechanical Design
