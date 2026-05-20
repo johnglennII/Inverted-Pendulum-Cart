@@ -74,12 +74,18 @@ disp('Observer poles:'); disp(poles_obsv');
 % --Control Design--
 A_aug = [A, zeros(4,1); 1, zeros(1,4)];
 B_aug = [B; 0];
-poles = [-10, -2, -15, -5, -0.1];
-K = place(A_aug, B_aug, poles);
-Kx = K(1:4); Ki = K(end);
+poles = .35*[-10, -2, -15, -5, -0.1];
+K_aug = place(A_aug, B_aug, poles);
+Kx = K_aug(1:4); Ki = K_aug(end);
 disp('=== Integral Action ===')
-disp('K gains:'); disp(K);
+disp('K gains:'); disp(K_aug);
 disp('CL poles:'); disp(poles);
+
+% --Observer Design--
+poles_obsv = 20*max(real(poles(1:4)))*ones(n,1) - 1.5*[0;1;2;3];
+L = place(A', C', poles_obsv)';
+disp('L gains:'); disp(round(L'));
+disp('Observer poles:'); disp(poles_obsv');
 
 %% Plots
 close('all');
