@@ -20,8 +20,8 @@ Lp = 266.0696e-3;
 % Jp = 0.0203488;
 % Lp = 346.2908e-3;
 
-bc = 1.5; % cart damping (N*s/m)
-bp = 0.01; % pendulum damping (N-m*s/rad)
+bc = 1; % cart damping (N*s/m)
+bp = 0.001; % pendulum damping (N-m*s/rad)
 r_pulley = 1.528*25.4/2000; % pulley pitch radius (m)
 Ke = .04; % motor torque const (N*m/A)
 Fc = 3.1; % coulomb friction (N)
@@ -29,7 +29,7 @@ Fc = 3.1; % coulomb friction (N)
 params.g = g; params.mc = mc; params.mp = mp; params.Jp = Jp; params.bc = bc; 
 params.bp = bp; params.Lp = Lp; params.r_pulley = r_pulley; params.Ke = Ke; params.Fc = Fc;
 
-x0 = [0; 0; -9*pi/180; 0];
+x0 = [0; 0; -9.5*pi/180; 0];
 x_star = [0;0;0;0];
 u_star = 0;
 
