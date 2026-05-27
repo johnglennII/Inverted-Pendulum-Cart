@@ -21,7 +21,7 @@ Lp = 266.0696e-3;
 % Lp = 346.2908e-3;
 
 bc = 1.5; % cart damping (N*s/m)
-bp = 0.01; % pendulum damping (N-m*s/rad)
+bp = 0.005; % pendulum damping (N-m*s/rad)
 r_pulley = 1.528*25.4/2000; % pulley pitch radius (m)
 Ke = .04; % motor torque const (N*m/A)
 Fc = 3.1; % coulomb friction (N)
@@ -29,7 +29,7 @@ Fc = 3.1; % coulomb friction (N)
 params.g = g; params.mc = mc; params.mp = mp; params.Jp = Jp; params.bc = bc; 
 params.bp = bp; params.Lp = Lp; params.r_pulley = r_pulley; params.Ke = Ke; params.Fc = Fc;
 
-x0 = [0; 0; -9*pi/180; 0];
+x0 = [0; 0; -9.5*pi/180; 0];
 x_star = [0;0;0;0];
 u_star = 0;
 
@@ -74,7 +74,7 @@ disp('Observer poles:'); disp(poles_obsv');
 % --Control Design--
 A_aug = [A, zeros(4,1); 1, zeros(1,4)];
 B_aug = [B; 0];
-poles = .35*[-10, -2, -15, -5, -0.1];
+poles = .75*[-10, -2, -15, -5, -0.1];
 K_aug = place(A_aug, B_aug, poles);
 Kx = K_aug(1:4); Ki = K_aug(end);
 disp('=== Integral Action ===')
