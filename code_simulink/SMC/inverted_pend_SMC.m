@@ -79,12 +79,14 @@ close('all');
 export_plt = input('Export Plots? y/n: ', 's');
 
 try
+    % Simulation plots
     t = 0:dt:tf;
     num_samples = length(t);
     y_sim = squeeze(out.y_sim);
     x_history = [y_sim(1,:); nan(1, length(t)); y_sim(2,:); nan(1,length(t))];
     f1 = pend_plots(t, x_history, params, num_samples);
 catch
+    % Hardware plots
     myRunObj = Simulink.sdi.getCurrentSimulationRun("SMC_hardware");
     mySigObj = getAllSignals(myRunObj);
     hw_run_data = export(mySigObj);

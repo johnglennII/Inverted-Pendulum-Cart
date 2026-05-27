@@ -118,7 +118,7 @@ if nargout == 2
     % -Control input-
     ax3 = nexttile;
     hold on; grid on;
-    title('Control input (N)')
+    title('Control input (A)')
     plot(t, u_history);
     legend('$u$')
     xlabel('time (s)')
