@@ -2,6 +2,7 @@
 currentPath = fileparts(mfilename('fullpath'));
 codePath = fullfile(currentPath, '..', 'code_simulink');
 addpath(genpath(codePath));
+clear currentPath codePath
 
 % Plotting default options
 set(groot, 'DefaultLineLineWidth', 1.5);
